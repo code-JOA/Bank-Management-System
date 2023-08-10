@@ -1,4 +1,7 @@
 #pylint: disable=unused-variable
+# make sure to have installed all the required node models
+
+
 from os import system
 system('cls')
 import mysql.connector
@@ -19,7 +22,7 @@ info=mysql.connector.connect(
 
 
 print('\t\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-print('\t\t\t\t |                       BADA BANK                           |')
+print('\t\t\t\t |                       JPMorgan                          |')
 print('\t\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 
 #main function 
