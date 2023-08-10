@@ -29,8 +29,8 @@ print('\t\t\t\t ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 def menu():
     print()
     print('1. Open new account')
-    print('2. Deposite cash')
-    print('3. Withdrawal cash')
+    print('2. Deposit cash')
+    print('3. Withdraw cash')
     print('4. Update customer detail')
     print('5. Customer detail')
     print('6. Balance inquiry')
@@ -43,7 +43,7 @@ def opennew():
     
     mycursor = info.cursor()
 
-    fname=input("Candidate's FristName - ")
+    fname=input("Candidate's FirstName - ")
     sname=input("Candidate's SecondName - ")
     dob=input("Date Of Birth - ")
     add=input("Residential Address - ")
@@ -128,7 +128,7 @@ def depo():
     print()
 
 #cash withdrawal function 
-def withdrawl():
+def withdraw():
 
     info=mysql.connector.connect(
     host="localhost",
@@ -187,7 +187,7 @@ def update():
     system('cls')
 
     for x in myresult:   
-        print("FristName - ",x[0])
+        print("FirstName - ",x[0])
         print("SecondName - ",x[1])
         print("Residential Address - ",x[2])
         print("Contact No - ",x[3])
@@ -203,7 +203,7 @@ def update():
         print()
         
         if opt=='a':
-            fname=input('Enter New Frist Name : ')
+            fname=input('Enter New First Name : ')
             sname=input('Enter New Second Name : ')
             sql=("update accounts set secondname='"+sname+"' where accountnumber='"+accno+"'" )
             sql1=("update amount set secondname='"+sname+"' where accountnumber='"+accno+"'" )
@@ -215,8 +215,8 @@ def update():
             print('Changes Done')
             
             print()
-            print('Prees u to return on update menu')
-            print('Prees r to return on main menu')    
+            print('Press u to return on update menu')
+            print('Press r to return on main menu')    
             print()
             
             opt=input('Enter your choice here : ')
