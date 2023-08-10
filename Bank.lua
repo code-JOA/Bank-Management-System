@@ -1,5 +1,9 @@
--- Please make sure you have installed the necessary libraries to run this.
--- including mysql, lua and other libraries
+
+-- Please note that this code assumes you have LuaSQL installed. 
+-- Also, Lua doesn't have built-in sleep functions or a standard way to clear 
+-- the console, so the provided code uses os.execute with sleep and clear commands.
+-- Make sure to adjust the code according to your platform (Linux/macOS/Windows) for 
+-- these commands.
 
 local mysql = require("luasql.mysql")
 local conn = mysql.mysql()
