@@ -120,3 +120,150 @@ int main() {
 }
 
 // Define other functions (openNew, deposit, withdrawal, etc.) similarly
+
+
+using namespace std;
+
+void clearScreen() {
+    cout << "\033[2J\033[H";
+}
+
+// Define openNew function
+void openNew(MYSQL* conn) {
+    string fname, sname, dob, add, adhno, phno, accno, cash;
+    cout << "Candidate's FirstName - ";
+    cin >> fname;
+    cout << "Candidate's SecondName - ";
+    cin >> sname;
+    cout << "Date Of Birth - ";
+    cin >> dob;
+    cout << "Residential Address - ";
+    cin.ignore();
+    getline(cin, add);
+    cout << "AadharCard No. - ";
+    cin >> adhno;
+    cout << "Contact No - ";
+    cin >> phno;
+    cout << "Account Number - ";
+    cin >> accno;
+    cout << "Opening Amount - ";
+    cin >> cash;
+
+    cout << endl;
+    char opt;
+    cout << "Press Y to save data: ";
+    cin >> opt;
+
+    if (opt == 'y' || opt == 'Y') {
+        string sql = "INSERT INTO accounts VALUES('" + fname + "','" + sname + "','" + dob + "','" + add + "','" + adhno + "'," + phno + ",'" + accno + "')";
+        string sql1 = "INSERT INTO amount VALUES('" + fname + "','" + sname + "','" + accno + "'," + cash + ")";
+
+        if (mysql_query(conn, sql.c_str()) != 0 || mysql_query(conn, sql1.c_str()) != 0) {
+            cerr << "Failed to execute SQL query" << endl;
+            return;
+        }
+
+        cout << endl;
+        cout << "Saving....." << endl;
+        sleep(5);
+        clearScreen();
+
+        cout << endl;
+        cout << "Saved" << endl;
+        sleep(1);
+        clearScreen();
+        cout << endl;
+        cout << "Press any key to return";
+        cin.ignore();
+    }
+}
+
+// Define deposit function
+void deposit(MYSQL* conn) {
+    string accno, amt;
+    cout << "Account number: ";
+    cin >> accno;
+    cout << "Deposit Amount: ";
+    cin >> amt;
+
+    string selectQuery = "SELECT balance FROM amount WHERE accountnumber='" + accno + "'";
+    if (mysql_query(conn, selectQuery.c_str()) != 0) {
+        cerr << "Failed to execute SQL query" << endl;
+        return;
+    }
+    
+    MYSQL_RES* result = mysql_store_result(conn);
+    MYSQL_ROW row = mysql_fetch_row(result);
+    string currentBalance = row[0];
+
+    cout << endl;
+    cout << "Please Wait...." << endl;
+    sleep(3);
+    clearScreen();
+    cout << endl;
+
+    string updateQuery = "UPDATE amount SET balance=balance+'" + amt + "' WHERE accountnumber='" + accno + "'";
+    if (mysql_query(conn, updateQuery.c_str()) != 0) {
+        cerr << "Failed to execute SQL query" << endl;
+        return;
+    }
+
+    cout << "Amount Credited to Account: '" << accno << "'" << endl;
+    cout << endl;
+    cout << "Press any key to return";
+    cin.ignore();
+}
+
+// Define withdrawCash function
+void withdrawCash(MYSQL* conn) {
+    string accno, amt;
+    cout << "Account number: ";
+    cin >> accno;
+    cout << "Withdrawal Amount: ";
+    cin >> amt;
+
+    string selectQuery = "SELECT balance FROM amount WHERE accountnumber='" + accno + "'";
+    if (mysql_query(conn, selectQuery.c_str()) != 0) {
+        cerr << "Failed to execute SQL query" << endl;
+        return;
+    }
+    
+    MYSQL_RES* result = mysql_store_result(conn);
+    MYSQL_ROW row = mysql_fetch_row(result);
+    string currentBalance = row[0];
+
+    cout << endl;
+    cout << "Please Wait...." << endl;
+    sleep(3);
+    clearScreen();
+    cout << endl;
+
+    string updateQuery = "UPDATE amount SET balance=balance-'" + amt + "' WHERE accountnumber='" + accno + "'";
+    if (mysql_query(conn, updateQuery.c_str()) != 0) {
+        cerr << "Failed to execute SQL query" << endl;
+        return;
+    }
+
+    cout << "Amount Debited From Account: '" << accno << "'" << endl;
+    cout << endl;
+    cout << "Press any key to return";
+    cin.ignore();
+}
+
+int main() {
+    MYSQL* conn = mysql_init(nullptr);
+    if (conn == nullptr) {
+        cerr << "mysql_init() failed" << endl;
+        return 1;
+    }
+
+    if (mysql_real_connect(conn, "localhost", "root", "qwerty", "bank", 0, nullptr, 0) == nullptr) {
+        cerr << "mysql_real_connect() failed" << endl;
+        return 1;
+    }
+
+    // Rest of the main function remains the same
+
+    mysql_close(conn);
+    return 0;
+}
