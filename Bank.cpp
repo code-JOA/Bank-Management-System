@@ -20,7 +20,8 @@ int main() {
         return 1;
     }
 
-    if (mysql_real_connect(conn, "localhost", "root", "qwerty", "bank", 0, nullptr, 0) == nullptr) {
+    if (mysql_real_connect(conn, "localhost", "root", "qwerty", "bank", 0, nullptr, 0)
+    == nullptr) {
         cerr << "mysql_real_connect() failed" << endl;
         return 1;
     }
@@ -29,7 +30,8 @@ int main() {
 
     time_t now = time(nullptr);
     tm* currentTime = localtime(&now);
-    cout << "Date : " << currentTime->tm_mday << "-" << (currentTime->tm_mon + 1) << "-" << (currentTime->tm_year + 1900) << endl;
+    cout << "Date : " << currentTime->tm_mday << "-" << (currentTime->tm_mon + 1) << "-" 
+    << (currentTime->tm_year + 1900) << endl;
     cout << "Time : " << currentTime->tm_hour << ":" << currentTime->tm_min << endl;
     cout << endl;
 
@@ -43,8 +45,8 @@ int main() {
         cout << endl;
         cout << "==========================================================\n";
         cout << "|    1. Open new account                                 |\n";
-        cout << "|    2. Deposite cash                                    |\n";
-        cout << "|    3. Withdrawal cash                                  |\n";
+        cout << "|    2. Deposit cash                                    |\n";
+        cout << "|    3. Withdraw cash                                  |\n";
         cout << "|    4. Update customer detail                           |\n";
         cout << "|    5. Customer detail                                  |\n";
         cout << "|    6. Balance inquiry                                  |\n";
