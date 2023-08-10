@@ -47,7 +47,7 @@ func main() {
         fmt.Println("==========================================================")
         fmt.Println("|    1. Open new account                                 |")
         fmt.Println("|    2. Deposit cash                                    |")
-        fmt.Println("|    3. Withdrawal cash                                  |")
+        fmt.Println("|    3. Withdraw cash                                  |")
         fmt.Println("|    4. Update customer detail                           |")
         fmt.Println("|    5. Customer detail                                  |")
         fmt.Println("|    6. Balance inquiry                                  |")
@@ -77,7 +77,7 @@ func main() {
         case 3:
             clearScreen()
             fmt.Println()
-            fmt.Println("==================Withdrawal Cash==================")
+            fmt.Println("==================Withdraw Cash==================")
             fmt.Println("=========Please Enter Your Account Number=========")
             fmt.Println()
             withdrawal(db)
