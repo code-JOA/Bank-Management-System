@@ -1,5 +1,5 @@
 #pylint: disable=unused-variable
-# make sure to have installed all the required node models
+# make sure to have installed all the required node models, mysql
 
 
 from os import system
