@@ -1,5 +1,10 @@
 // 
-
+Please note that you will need to have the MySQL C API library installed and properly 
+configured in your C++ development environment. Also, the code provided above only 
+includes the structure and flow. You need to define the individual functions (openNew,
+ deposit, withdrawal, etc.) and their functionality according to the original Python code. 
+ The input/output in C++ is done using cin and cout. 
+Adjustments can be made based on your specific requirements and MySQL configuration.
 // 
 
 #include <iostream>
@@ -70,7 +75,7 @@ int main() {
             case 2:
                 clearScreen();
                 cout << endl;
-                cout << "==================Deposite Cash==================" << endl;
+                cout << "==================Deposit Cash==================" << endl;
                 cout << "=========Please Enter Your Account Number========" << endl;
                 cout << endl;
                 // Call deposit() function
@@ -78,7 +83,7 @@ int main() {
             case 3:
                 clearScreen();
                 cout << endl;
-                cout << "==================Withdrawl Cash==================" << endl;
+                cout << "==================Withdraw Cash==================" << endl;
                 cout << "=========Please Enter Your Account Number=========" << endl;
                 cout << endl;
                 // Call withdrawal() function
