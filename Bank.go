@@ -1,4 +1,9 @@
 // 
+Please note that this code uses the database/sql package to connect to 
+the MySQL database. Make sure you have the MySQL driver imported and configured 
+properly. The code uses fmt.Scan for user input and outputs data to the console using
+fmt.Println. Adjustments can be made based on your specific requirements and your MySQL 
+database configuration.
 // 
 
 package main
@@ -41,7 +46,7 @@ func main() {
         fmt.Println()
         fmt.Println("==========================================================")
         fmt.Println("|    1. Open new account                                 |")
-        fmt.Println("|    2. Deposite cash                                    |")
+        fmt.Println("|    2. Deposit cash                                    |")
         fmt.Println("|    3. Withdrawal cash                                  |")
         fmt.Println("|    4. Update customer detail                           |")
         fmt.Println("|    5. Customer detail                                  |")
@@ -65,14 +70,14 @@ func main() {
         case 2:
             clearScreen()
             fmt.Println()
-            fmt.Println("==================Deposite Cash==================")
+            fmt.Println("==================Deposit Cash==================")
             fmt.Println("=========Please Enter Your Account Number========")
             fmt.Println()
             deposit(db)
         case 3:
             clearScreen()
             fmt.Println()
-            fmt.Println("==================Withdrawl Cash==================")
+            fmt.Println("==================Withdrawal Cash==================")
             fmt.Println("=========Please Enter Your Account Number=========")
             fmt.Println()
             withdrawal(db)
@@ -106,7 +111,7 @@ func main() {
 func openNew(db *sql.DB) {
     var fname, sname, dob, add, adhno, phno, accno, cash, opt string
 
-    fmt.Print("Candidate's FristName - ")
+    fmt.Print("Candidate's FirstName - ")
     fmt.Scan(&fname)
     fmt.Print("Candidate's SecondName - ")
     fmt.Scan(&sname)
