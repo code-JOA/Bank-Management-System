@@ -42,8 +42,8 @@ console.log(
 function menu() {
   console.log();
   console.log("1. Open new account");
-  console.log("2. Deposite cash");
-  console.log("3. Withdrawal cash");
+  console.log("2. Deposit cash");
+  console.log("3. Withdraw cash");
   console.log("4. Update customer detail");
   console.log("5. Customer detail");
   console.log("6. Balance inquiry");
@@ -56,7 +56,7 @@ function opennew() {
   let sql = "";
   let sql1 = "";
 
-  const fname = readline.question("Candidate's FristName - ");
+  const fname = readline.question("Candidate's FirstName - ");
   const sname = readline.question("Candidate's SecondName - ");
   const dob = readline.question("Date Of Birth - ");
   const add = readline.question("Residential Address - ");
@@ -100,14 +100,14 @@ function opennew() {
   }
 }
 
-// Other functions (depo, withdrawl, update, detail, baliq, close) are similarly converted to JavaScript.
+// Other functions (deposit, withdrawal, update, detail, baliq, close) are similarly converted to JavaScript.
 
 while (true) {
   console.log();
   console.log("==========================================================");
   console.log("|    1. Open new account                                 |");
-  console.log("|    2. Deposite cash                                    |");
-  console.log("|    3. Withdrawal cash                                  |");
+  console.log("|    2. Deposit cash                                    |");
+  console.log("|    3. Withdraw cash                                  |");
   console.log("|    4. Update customer detail                           |");
   console.log("|    5. Customer detail                                  |");
   console.log("|    6. Balance inquiry                                  |");
@@ -130,7 +130,7 @@ while (true) {
     case 2:
       console.clear();
       console.log();
-      console.log("==================Deposite Cash==================");
+      console.log("==================Deposit Cash==================");
       console.log("=========Please Enter Your Account Number========");
       console.log();
       depo();
@@ -138,7 +138,7 @@ while (true) {
     case 3:
       console.clear();
       console.log();
-      console.log("==================Withdrawl Cash==================");
+      console.log("==================Withdraw Cash==================");
       console.log("=========Please Enter Your Account Number=========");
       console.log();
       withdrawl();
